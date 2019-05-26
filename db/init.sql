@@ -1,35 +1,40 @@
-CREATE user 'web'@172.16.1.5 identified by 'xxx';
-CREATE user 'admin'@'localhost' identified by 'xxx';
+CREATE user 'web'@172.16.1.5 identified by 'viveleweb';
+CREATE user 'admin'@'localhost' identified by 'viveladministration';
 grant all privileges on *.* TO 'web'@172.16.1.5;
 grant all privileges on *.* TO 'admin'@'localhost';
 
-CREATE DATABASE WTdb
+CREATE DATABASE WTdb;
+use WTdb;
+
 create table CLIENT
-(ONSS char(4) not null,
- NOM  varchar(12) not null,
- ADRESSE varchar(20) not null,
- LOCALITE varchar(12) not null,
- PASSWORD varchar(20) not null,
- NEWS bool not null,
- primary key (NCLI));
+(
+NCLI int not null auto_increment,
+ONSS varchar(20) not null,
+NOM  varchar(12) not null,
+ADRESSE varchar(20) not null,
+LOCALITE varchar(12) not null,
+PASSWORD varchar(20) not null,
+NEWS bool not null,
+primary key (NCLI)
+);
 
 create table PRODUIT
-(NPRO char(5) not null,
- LIBELLE varchar(20) not null,
+(NPRO varchar(5) not null,
+ LIBELLE varchar(250) not null,
  PRIX decimal(5,0) not null,
  QSTOCK decimal(6,0) not null,
  primary key (NPRO));
 
 create table COMMANDE
-(NCOM char(5) not null,
- NCLI char(4) not null,
+(NCOM varchar(5) not null,
+ NCLI int not null,
  DATECOM datetime not null,
  primary key (NCOM),
  foreign key (NCLI) references CLIENT);
 
 create table DETAIL
-(NCOM char(5) not null,
- NPRO char(5) not null,
+(NCOM varchar(5) not null,
+ NPRO varchar(5) not null,
  QCOM decimal(4,0) not null,
  primary key (NCOM,NPRO),
  foreign key (NCOM) references COMMANDE,
