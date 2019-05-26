@@ -39,8 +39,10 @@
 		</div>
 		<div class="contenu" id="Produits">
 			<h2> Nos produits </h2>
+
 		</div>
 		<div class="contenu" id="Inscription">
+			<h2>Inscription</h2>
 			<form method="post" action="Connexion.php">
 				<p>
 		  			ONSS:<br>
@@ -52,7 +54,7 @@
 		  			<input type="text" name="mail" value=""><br><br>
 
 		  			Adresse du siège social:<br>
-		  			<input type="text" name="adress" value=""><br><br>
+		  			<input type="text" name="address" value=""><br><br>
 
 					Mot de passe:<br>
 					<input type="password" name="password" value=""><br><br>
