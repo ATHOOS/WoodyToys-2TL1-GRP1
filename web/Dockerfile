@@ -25,10 +25,10 @@ RUN mkdir /var/www/b2b.wt1.ephec-ti.be
 RUN mkdir /var/www/intranet.wt1.ephec-ti.be
 
 COPY wt1.ephec-ti.be.html /var/www/wt1.ephec-ti.be/index.html
-COPY b2b.wt1.ephec-ti.be.html /var/www/b2b.wt1.ephec-ti.be/index.html
+COPY b2b.wt1.ephec-ti.be.php /var/www/b2b.wt1.ephec-ti.be/index.php
+COPY Connexion.php /var/www/b2b.wt1.ephec-ti.be/Connexion.php
 COPY intranet.wt1.ephec-ti.be.html /var/www/intranet.wt1.ephec-ti.be/index.html
 
 EXPOSE 80 443
 
 CMD apachectl -DFOREGROUND
-
