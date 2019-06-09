@@ -1,0 +1,24 @@
+version: '2'
+
+
+services:
+  voip:
+    image: remyvase/wt_voip:latest
+    container_name: voip
+    restart: always
+    ports:
+      - "5060:5060/tcp"
+      - "5060:5060/udp"
+      - "10000-11000:10000-11000/udp"
+    networks:
+      dmz:
+        ipv4_address: 172.16.0.100
+
+
+networks:
+  dmz:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
