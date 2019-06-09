@@ -46,23 +46,23 @@
 			<form method="post" action="Connexion.php">
 				<p>
 		  			ONSS:<br>
-		  			<input type="text" name="Id" value=""><br><br>    			
+		  			<input type="text" name="Id" value="" required><br><br>    			
 					Nom de la société :<br>
-		  			<input type="text" name="name" value=""><br><br>
+		  			<input type="text" name="name" value="" required><br><br>
 
 					Adresse mail de contact:<br>
-		  			<input type="text" name="mail" value=""><br><br>
+		  			<input type="text" name="mail" value="" required><br><br>
 
 		  			Adresse du siège social:<br>
-		  			<input type="text" name="address" value=""><br><br>
+		  			<input type="text" name="address" value="" required><br><br>
 
 					Mot de passe:<br>
-					<input type="password" name="password" value=""><br><br>
+					<input type="password" name="password" value="" required><br><br>
 
 					Confirmer le mot de passe:<br>
-					<input type="password" name="password2" value=""><br><br>
+					<input type="password" name="password2" value="" required><br><br>
 
-					<input type="checkbox" name="news" id="news" /> <label for="news" value="news">Je veux être tenu aux courant des nouveautés</label>
+					<input type="checkbox" name="news" id="news"/> <label for="news" value="news">Je veux être tenu aux courant des nouveautés</label>
 		  			<input type="submit" value="valider">
 				</p>
 			</form>
