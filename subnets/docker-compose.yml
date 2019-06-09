@@ -1,0 +1,80 @@
+version '2'
+
+services:
+	directeur
+		image: ubuntu:latest
+		container_name: directeur
+		networks:
+			direction: 
+				ipv4_address: 172.16.1.65
+
+	secretaire
+		image: ubuntu:latest
+		container_name: secretaire
+		networks:
+			direction: 
+				ipv4_address: 172.16.1.66
+
+	commercial1
+		image: ubuntu:latest
+		container_name: commercial1
+		networks:
+			commercial:
+				ipv4_address: 172.16.1.17
+
+	commercial2
+		image: ubuntu:latest
+		container_name: commercial2
+		networks:
+			commercial:
+				ipv4_address: 172.16.1.18
+
+	comptable1
+		image: ubuntu:latest
+		container_name: comptable1
+		networks:
+			comptable:
+				ipv4_address: 172.16.1.33
+
+	comptable2
+		image: ubuntu:latest
+		container_name: comptable2
+		networks:
+			comptable:
+				ipv4_address: 172.16.1.34
+
+	atelier
+		image: ubuntu:latest
+		container_name: atelier
+		networks:
+			atelier:
+				ipv4_address: 172.16.1.49
+
+networks:
+	direction:
+		driver: bridge
+		ipam:
+			driver: default
+			config:
+				- subnet: 172.16.1.64/28
+
+	commercial:
+		driver: bridge
+		ipam:
+			driver: default
+			config:
+				- subnet: 172.16.1.16/28
+
+	comptable:
+		driver: bridge
+		ipam:
+			driver: default
+			config:
+				- subnet: 172.16.1.32/28
+
+	atelier:
+		driver: bridge
+		ipam:
+			driver: default
+			config:
+				- subnet: 172.16.1.48/28			
