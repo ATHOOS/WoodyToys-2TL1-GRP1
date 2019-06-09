@@ -1,7 +1,7 @@
 <?php
 $servername = "172.16.1.2";
 $username = "web";
-$password = "viveleweb";
+$password = "xxx";
 //connexion à la base de donnée
 try {
     $conn = new PDO("mysql:host=$servername;dbname=WTdb", $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
