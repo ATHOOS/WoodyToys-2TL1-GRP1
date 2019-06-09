@@ -21,17 +21,7 @@ $testInjectionSQL = array(
 	'password' => ($_POST['password']),
 	'news' => ($_POST['news'])
 );
-/*foreach ($testInjectionSQL as $element) {
-	if (is_numeric($element))
-		{
-			// si tout est correct, passer au suivant
-		}
-	else
-		{
-			//implémentation incorrecte : injection SQL, interruption de la requête SQL
-			$conn = null;
-		}
-}*/
+
 unset($testInjectionSQL); // efface l'array
 // evite un autre type d'injection sql
 $Id =$conn->quote($_POST['Id']);
@@ -51,4 +41,33 @@ $inscriptUtilisateur->execute(array(
 	':PASSWORD' => $password,
 	':NEWS' => $news)) or die(print_r($conn->errorInfo()));
 $inscriptUtilisateur->closeCursor(); //on ferme la requête
+
+$req = $conn->prepare('SELECT NCLI, ONSS, NOM, ADRESSE, LOCALITE, NEWS FROM CLIENT WHERE ONSS not like ""');
+$req->execute();
+
+echo '<table>';
+echo '<tr>';
+echo '<th>'."NCLI".'</th>';
+echo '<th>'."ONSS".'</th>';
+echo '<th>'."NOM".'</th>';
+echo '<th>'."ADRESSE".'</th>';
+echo '<th>'."LOCALITE".'</th>';
+echo '<th>'."NEWS".'</th>';
+echo '<tr>';
+
+while ($donnees = $req->fetch())
+{
+    echo '<tr>';
+    echo '<th>'.$donnees['NCLI'].'</th>';
+    echo '<th>'.$donnees['ONSS'].'</th>';
+    echo '<th>'.$donnees['NOM'].'</th>';
+    echo '<th>'.$donnees['ADRESSE'].'</th>';
+    echo '<th>'.$donnees['LOCALITE'].'</th>';
+    echo '<th>'.$donnees['NEWS'].'</th>';
+    echo '</tr>';
+}
+
+echo '</table>';
+$req->closeCursor();
+
 ?>
