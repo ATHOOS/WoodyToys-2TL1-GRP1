@@ -1,0 +1,50 @@
+version: '2'
+
+
+services:
+  web:
+    image: remyvase/wt_web:latest
+    container_name: web
+    restart: always
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+    networks:
+      dmz:
+        ipv4_address: 172.16.0.10
+      db:
+        ipv4_address: 172.16.1.5
+  dns:
+    image: remyvase/wt_dns:latest
+    container_name: dns
+    restart: always
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    networks:
+      dmz:
+        ipv4_address: 172.16.0.254
+  database:
+    image: remyvase/wt_database:latest
+    container_name: database
+    restart: always
+    networks:
+      db:
+        ipv4_address: 172.16.1.2
+
+
+
+
+networks:
+  dmz:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
+  db:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.1.0/28
