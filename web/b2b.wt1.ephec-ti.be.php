@@ -1,3 +1,4 @@
+<?php require("functions.php"); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -37,13 +38,9 @@
 			<h2> Qui sommes-nous ?</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
-		<div class="contenu" id="Produits">
-			<h2> Nos produits </h2>
-
-		</div>
 		<div class="contenu" id="Inscription">
 			<h2>Inscription</h2>
-			<form method="post" action="Connexion.php">
+			<form method="post" action="addClient.php">
 				<p>
 		  			ONSS:<br>
 		  			<input type="text" name="Id" value="" required><br><br>    			
@@ -67,8 +64,9 @@
 				</p>
 			</form>
 		</div>
-		<div class="contenu" id="Contact">
-			<h2> Contacts </h2>
+		<div class="contenu" id="Clients">
+			<h2> Clients </h2>
+			<?= getAllClients(); ?>
 		</div>
 	</body>
 </html>
