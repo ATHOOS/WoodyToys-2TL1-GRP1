@@ -10,7 +10,7 @@ Administration Système &amp; Réseaux II - Projet - Groupe 1
 ![Diagramme Logique](https://i.imgur.com/5WPDBDJ.png)
 
 # Schéma physique
-![Schéma physique](https://i.imgur.com/YIKICUz.png)
+![Schéma physique](https://i.imgur.com/J5uf2ta.png)
 
 ## Links :
 * [Dockerhub ](https://hub.docker.com/u/remyvase)
